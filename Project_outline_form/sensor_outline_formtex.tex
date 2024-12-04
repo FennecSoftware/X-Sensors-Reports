@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[a4paper, left=2cm, right=2cm, top=3cm, bottom=3cm]{geometry}
+\usepackage{hyperref}
+\usepackage{calc}
+\def\spacerIndent{10em}
+\renewcommand*{\DefaultHeightofTextMultiline}{6\baselineskip} 
+\renewcommand*{\LayoutTextField}[2]{\makebox[\spacerIndent][l]{#1: }%
+	\raisebox{\baselineskip}{\raisebox{-\height}{#2}}}
+%\renewcommand*{\LayoutTextField}[2]{% or this or similar ...
+	%\raisebox{-\height}{\makebox[6em][l]{#1: }}\raisebox{-\height}{#2}}
+\def\LayoutChoiceField#1#2{\makebox[\spacerIndent][l]{#1: }#2}
+\newdimen\longline
+\longline=\textwidth\advance\longline-\spacerIndent
+\begin{document}
+	\begin{Form}
+		\TextField[name=Name,width=\longline,borderwidth=0,bordersep=4pt,
+		backgroundcolor={.85 .85 .85}]{Kunde}\vskip1ex
+		
+		\TextField[name=Affiliation,width=\longline,borderwidth=0,
+		backgroundcolor={.85 .85 .85},]{Projektname}\vskip1ex
+		
+		\begin{minipage}
+			{.5\linewidth-\spacerIndent}
+			\TextField[name=Affiliation,width=\linewidth,borderwidth=0,
+			backgroundcolor={.85 .85 .85},]{Nullpunkt [$\mu\varepsilon$]} 	
+		\end{minipage}
+	\begin{minipage}
+		{.5\linewidth}
+		\TextField[name=Affiliation,width=\linewidth,borderwidth=0,
+		backgroundcolor={.85 .85 .85},]{Nullpunkt [$\mu\varepsilon$]} 	
+	\end{minipage}
+		
+		\ChoiceMenu[borderwidth=0,radio=true,
+		backgroundcolor={.85 .85 .85}]{Signal}{mv/V, V, mA}\vskip1ex
+		
+		\ChoiceMenu[borderwidth=0,radio=true,
+		backgroundcolor={.85 .85 .85}]{Tarierbar}{Ja, Ja; mit Reset}\vskip1ex
+		
+		\TextField[name=Comment,multiline=true,height=6\baselineskip,
+		width=\longline,borderwidth=0,backgroundcolor={.85 .85 .85}]{Comments}\\
+	\end{Form}
+
+
+\newpage
+	\begin{Form}
+
+	\TextField[name=Comment,multiline=true,height=40\baselineskip,
+	width=\longline,borderwidth=0,backgroundcolor={.85 .85 .85}]{Sonstiges}\\
+\end{Form}
+\end{document}

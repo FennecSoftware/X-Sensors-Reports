@@ -1,0 +1,124 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=4cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage[ngerman]{babel}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{titling}
+
+\usepackage{xcolor}
+\usepackage{titlesec}
+
+
+
+\definecolor{xsens}{RGB}{0,115,188}
+\usepackage{sectsty}
+%\chapterfont{\color{xsens}}  % sets colour of chapters
+%\sectionfont{\color{xsens}}  % sets colour of sections
+%\chapterfont{\color{xsens}}
+
+
+\author{Mirco Huber}
+\newcommand{\subtitle}{Ausmessung Prototypen}
+\title{XC-202-S40 Evaluation Guide}
+
+
+%%%%%%%%%%%%%%%%%% HEADER AND FOOTER
+\usepackage{fancyhdr}
+\setlength\headheight{40pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\lhead{\thetitle \hspace{.1em} (DE)}
+\rhead{\includegraphics[height=4em]{Logos/X-SENSORS-Logo_Slogan_EN_Transparent.png}}
+\rfoot{\thepage}
+\cfoot{}
+
+\fancypagestyle{plain}{%
+	\setlength\headheight{40pt}
+	\renewcommand{\headrulewidth}{1pt}
+	\lhead{\thetitle (DE)}
+	\rhead{\includegraphics[height=4em]{Logos/X-SENSORS-Logo_Slogan_EN_Transparent.png}}
+	\rfoot{\thepage}
+	\cfoot{}
+	
+}
+
+\fancypagestyle{empty}{%
+	\fancyhf{}
+}
+
+\usepackage{subfiles}
+
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{}{0pt}{\thechapter.\ }
+
+\usepackage{nicefrac}
+\usepackage{tocloft}
+
+
+\pagestyle{fancy}
+\begin{document}
+%	\thispagestyle{empty}
+%	\begin{titlepage}
+%		\begin{figure}[H]
+%			\centering
+%			\includegraphics[width=.5\linewidth]{Logos/X-SENSORS-Logo_Slogan_EN_Transparent.png}
+%		\end{figure}
+%		\vspace*{3cm}
+%%		\begin{center}
+%			\Huge {\thetitle} \\\vspace*{.5cm}
+%			\small {\subtitle}
+%		\end{center}
+%		\vspace{12cm}
+%		\hspace{.6\linewidth} 
+%		\begin{tabular}{l}	
+%			\small{\theauthor} \\[.5pt]  
+%			\small{X-Sensors AG} \\ 
+%			\small{Landenbergerstrasse 13} \\
+%			\small{CH-8253 Diessenhofen} \\ [.5cm] 	
+%			\today
+%		\end{tabular}
+%	\end{titlepage}
+%
+%	\newpage
+%	\setcounter{page}{1}
+%	\pagenumbering{arabic} % A-Z Seiten (werden ausgeblendet), geht nur um PDF
+	\pagestyle{fancy}
+	
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Hinweise}
+	Dieses Dokument enthält einige Hinweise zur Verwendung der Prototypen \textit{XC-202-S40}. Die Hardware ist final und befindet sich in der Zertifizierung. Die Firmware wurde gemäss Spezifikationen entwickelt und unter Laborbedingungen getestet. Im aktuellen Stadium ist aber nicht auszuschliessen, dass die Firmware noch einige Schwachstellen aufweist. Beispielsweise aufgrund der Einbausituation, äusseren Störfaktoren (Temperaturen, elektromagnetische Felder von Antrieben etc.). Daher sollten die Prototypen unter realen Bedingungen ausgiebig getestet werden. Sollte ein Fehler auftreten, dokumentieren Sie diesen bitte so genau wie möglich, damit dieser allenfalls reproduziert, repariert und getestet werden kann.
+	\subsection*{Umstellung DMS-Sensoren $\leftrightarrow$ CLS}
+	Die Umstellung mittels Hardware-Switch sollte nach Möglichkeit in ausgeschaltetem Zustand vorgenommen werden. Die Hardware wird je nach Stellung des Schalters anders initialisiert. Diese Initialisierung \textit{kann} in laufendem Betrieb durchgeführt werden, führt aber unter gewissen Bedingungen zu Fehlern.
+	\subsection*{Testszenarien}
+	\textbf{Szenario}: Speisespannung (sofern möglich) reduzieren bis auf 15V.\\
+	\textbf{Erwartung}: Bei 16V sollte das Interface einen Fehler melden (langsames durchgängiges Blinken der LED, Frequenz: 4kHz)\\
+	\\\noindent
+	\textbf{Szenario:} Interface im DMS-Sensor-Modus (CLS OFF). Falsche Anzahl Sensoren. Im Betrieb einen der N (1,2 oder 4, je nach Konfiguration) Sensoren ausstecken.\\
+	\textbf{Erwartung:} Intervallblinken der LED (ist der x-te Sensor ausgesteckt, Blinkfolge von X Pulsen, gefolgt von einer Pause), Fehlerfrequenz 4kHz\\
+	\\\noindent
+	\textbf{Szenario}: CLS ausserhalb gültigem Bereich. Interface im CLS-Modus (CLS ON). CLS im Betrieb ausstecken (0 mA $\rightarrow$ ausseerhalb des gültigen Bereichs von 4...20 mA)\\
+	\textbf{Erwartung:} Das Interface melden einen Fehler (langsames durchgängiges Blinken der LED, Frequenz: 4kHz)\\
+	\newpage
+	\section*{Notes}
+	\lhead{\thetitle \hspace{.1em} (EN)}
+	This document contains some notes on the use of the prototypes \textit{XC-202-S40}. The hardware is final and is currently being certified. The firmware was developed according to specifications and tested under laboratory conditions. At this stage, however, it cannot be ruled out that the firmware still has some weaknesses. For example, due to the installation situation, external interference factors (temperatures, electromagnetic fields from drives, etc.). The prototypes should therefore be extensively tested under real conditions. If an error occurs, please document it as precisely as possible so that it can be reproduced, repaired and tested if necessary.
+	\subsection*{Switching Mode: strain gauge sensors $\leftrightarrow$ CLS}
+	If possible, the changeover using the hardware switch should be carried out when the device is switched off. The hardware is initialized differently depending on the position of the switch. This initialization \textit{can} be carried out during operation, but will lead to errors under certain conditions.
+	\subsection*{Test Cases}
+	\textbf{Test case}: Reduce supply voltage (if possible) to 15V.\\\
+	\textbf{Expectation}: At 16V, the interface should report an error (slow continuous flashing of the LED, frequency: 4kHz)\\
+	\\\noindent
+	\textbf{Test case:} Interface in strain gauge sensor mode (CLS OFF). Incorrect number of sensors. Unplug one of the N (1,2 or 4, depending on configuration) sensors during operation.\\
+	\textbf{Expectation:} Intermittent flashing of the LED (if the x-th sensor is unplugged, flashing sequence of x pulses followed by a pause), error frequency 4kHz\\\
+	\\\noindent
+	\textbf{Test case}: CLS out of valid range. Interface in CLS mode (CLS ON). Unplug CLS during operation (0 mA $\rightarrow$ outside the valid range of 4...20 mA)\\
+	\textbf{expectation:} The interface reports an error (slow continuous flashing of the LED, frequency: 4kHz)\\
+	
+
+\end{document}

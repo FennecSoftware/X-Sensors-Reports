@@ -1,0 +1,64 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[a4paper,left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[ngerman]{babel}
+\usepackage{subfiles}
+\usepackage{titlesec}
+\usepackage{nicefrac}
+\usepackage{tocloft}
+
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{}{0pt}{\thechapter.\ }
+\title{Untersuchung Rauschverhalten\\[3ex] \small{ X-106 mit Empfindlichkeit 0...30$\mu\varepsilon$}}
+
+\author{Mirco Huber}
+\renewcommand\contentsname{} % the empty name
+\def\contentsname{\empty}
+
+\renewcommand{\cftchappresnum}{\hspace{0pt}}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+
+
+\begin{document}
+	\maketitle
+	\newpage
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begingroup
+	
+	
+	\thispagestyle{empty}
+
+	\tableofcontents
+	
+	\thispagestyle{empty} % Ausblenden von Kopf- und Fusszeile beim Inhaltsverzeichnis
+	
+	\endgroup
+\clearpage \newpage
+	\thispagestyle{empty}
+	\listoffigures
+	\thispagestyle{empty}
+	\listoftables
+	\thispagestyle{empty}
+\clearpage \newpage
+	
+	\pagenumbering{arabic} % A-Z Seiten (werden ausgeblendet), geht nur um PDF
+
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\chapter{Erste Messkampagne vom 21.07.23}
+	\setcounter{page}{1}
+	\subfile{Teilberichte/Bericht_1/document}
+	\newpage
+	\chapter{Zweite Test Messkampagne vom 06.08.23}
+	\subfile{Teilberichte/Bericht_2/bericht}
+	\newpage
+	\chapter{Dritte Messkampagne vom 10.08.23}
+	\subfile{Teilberichte/Bericht_3/auswertung}
+\end{document}

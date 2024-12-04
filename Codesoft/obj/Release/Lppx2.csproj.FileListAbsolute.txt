@@ -1,0 +1,7 @@
+C:\Users\Mirco\Downloads\cs_lppx2_Csharp\Lppx2_C#\obj\Release\Lppx2.csproj.ResolveComReference.cache
+D:\01_X-Sensors\Codesoft\obj\Release\Lppx2.csprojAssemblyReference.cache
+D:\01_X-Sensors\Codesoft\obj\Release\Lppx2.csproj.ResolveComReference.cache
+D:\01_X-Sensors\Codesoft\obj\Release\Lppx2.imageViewer.resources
+D:\01_X-Sensors\Codesoft\obj\Release\Lppx2.Form1.resources
+D:\01_X-Sensors\Codesoft\obj\Release\Lppx2.csproj.GenerateResource.cache
+D:\01_X-Sensors\Codesoft\obj\Release\Lppx2.csproj.CoreCompileInputs.cache

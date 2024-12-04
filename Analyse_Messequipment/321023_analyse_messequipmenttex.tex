@@ -1,0 +1,50 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[a4paper,left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{nicefrac}
+\usepackage[ngerman]{babel}
+
+\usepackage[obeyspaces]{url}
+
+\newcommand{\ue}{$\mu\varepsilon$}
+
+
+
+\title{Genauigkeitsanalyse Messequipment\\[3ex] \small{Analyse für Kalibration X-106 30\ue}}
+
+\author{Mirco Huber}
+
+
+
+\begin{document}
+	\maketitle
+	\newpage
+	\section{Bestandsaufnahme / Ausgangslage}
+	Im Folgenden wird untersucht, ob das aktuell vorhandene Messequipment hinreichend genau ist, um den X-106-Sensor mit eimen Fullscale von 30\ue zu kalibrieren. Aus den Kalibrationsparametern, welche in NAV hinterlegt sind, gehen folgende Anforderungen/Eigenschaften hervor:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{l|l}
+			Eigenschaft & Wert \\
+			\hline
+			Messbereich & $\pm 30$\ue\\
+			Nullpunkt & 0.5V\\
+			Signalhub & 9.5V\\
+			Nichtlinearität & $\le 0.3$\%FS\\ 
+			Hysterese & $\le 0.3$\%FS\\ 
+		\end{tabular}	
+	\end{table}\noindent
+	Der verkettete Fehler aus Nichtlinearität und Hysterese muss folglich $\le (0.3+0.3) \%FS = 0.6\%FS$ sein. Für die folgenden Betrachtungen wird daher ein zulässiger summierter Fehler von max $0.5\%FS$ angenommen. Somit ist etwas Marge vorhanden, zudem ist es unwahrscheinlich, dass die Stelle mit dem grössten Hysteresefehler mit jener der grössten Linearitätsabweichung zusammenfällt. Absolut betrachtet bedeutet ein zulässiger Fehler von 0.5\%FS $0.005*9.5V = 0.0475V$. Damit ein Fehler von einem halben Prozent überhaupt erkannt werden kann, müssen mindestens 200 Messpunkte im Intervall von [0,FS] zu liegen kommen. Aus messtechnischer Sicht sollte das Prüfmittel um ein Faktor 10 genauer sein; somit sollten $\ge 2000$ Messpunkte in diesem Intervall differenzierbar sein.
+	\subsection{USB-Messinterface}
+	Zum Aufzeichnen von Messkurven wird das hauseigene \textit{USB-Messinterface} (Artikel 100431) eingesetzt. Dieses besteht aus einem 16-Bit AD-Wandler von MCC / Digilent mit einem Messbereich von $\pm 10V$ sowie hauseigenen Messverstärkern mit einer Verstärkung von $\pm 4mV/V \rightarrow \pm 10V$\\
+	Gemäss Datenblatt (\path{X:\Produkte\USB_Messinterface\Entw\Docu}) beträgt die integrale Nichtlinearität (INL) $\pm1.8 LSB$, womit von den ursprünglichen 16 Bits nur 14.2 ausgewertet werden.\\
+	Rechnerisch ergibt sich aus obigen Spezifikationen eine Messauflösung von
+	\begin{equation}
+		2^{14.2}/20 \approxeq 941 S/V
+	\end{equation}	
+	wobei S/V für \textit{Samples per Volt} steht.
+\end{document}

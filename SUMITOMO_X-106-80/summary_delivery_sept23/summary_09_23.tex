@@ -1,0 +1,42 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[a4paper,left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{nicefrac}
+\usepackage[ngerman]{babel}
+\title{Untersuchung Rauschverhalten\\[3ex] \small{ X-106 mit Empfindlichkeit 0...30$\mu\varepsilon$; Vergossen}}
+
+\author{Mirco Huber}
+
+
+
+
+\begin{document}
+\section*{Details Lieferung der Funktionsmuster September 2023}
+Hochsensibler Dehnungssensor mit Messbereich $30\mu\varepsilon$, Living-Zero 0.5V und Hub 9.5V\\\noindent
+Modifikationen gegenüber Standard-X-106:
+\begin{table}[H]
+	\begin{tabular}[t]{ll}
+		DMS:		&Hochsensible DMS (303218) mit höherem k-Faktor (GK geklebt 303505)\\[.5em]	
+		Print:		&Verstärkung massiv erhöht (R16 $\rightarrow 390k\Omega$ )\\
+					&Tiefpassfilter von $f_c=5kHz$ auf $f_c=100Hz$ bzw. $f_c=70Hz$ angepasst\\[.5em]
+					& Modifikationen:
+					\begin{tabular}[t]{l|l|l}
+						$f_c$&R24 & C24\\
+						\hline
+						 $100Hz$	&7k		&220nF\\
+						  $70Hz$	&10k	&220nF\\
+						
+					\end{tabular}\\[3em]
+		Firmware: 	&Project FennecFox, Git Tag V0.0.0\\
+					&Event-Driven-Ansatz\\
+		Signal		&$0..30\mu\varepsilon \rightarrow 0.5...10V$ aka. $-30...30\mu\varepsilon \leftrightarrow -9...10V$ mit NP 0.5V
+	\end{tabular}	
+\end{table}
+
+	
+\end{document}

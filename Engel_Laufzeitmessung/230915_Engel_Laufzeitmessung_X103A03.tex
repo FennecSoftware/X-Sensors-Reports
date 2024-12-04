@@ -1,0 +1,29 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{nicefrac}
+\usepackage{float}
+ \thispagestyle{empty}
+\author{Mirco Huber}
+\begin{document}
+\noindent
+Um die Signallaufzeit des X-103 A03 Print zu untersuchen, wurde ein solcher Print mit einem DMS-Simulator verbuden. Anschliessend wurden die DMS-Signale sowie das Ausgangssignal des Prints mit einem Aufzeichnungsgerät mit 30 kHz aufgezeichnet. Mit dem Simulator wurden Sprünge mit $\Delta S = 0.5 \nicefrac{mV}{V}$ generiert. Signale wurden zu vergleichszwecken normiert auf den bereich [0,100]. \\\newline
+\noindent Aus der Aufzeichnung lässt sich schließen, dass durch die Signalverarbeitung auf dem Print ein Zeitversatz von 10...30 $\mu s$ entsteht. Der Signalpfad ist rein analog und somit kaum schneller realisierbar. Der Versatz kommt durch Kapazitäten zustande, die jedoch für die Signalkonditionierung (Filterung etc.) benötigt werden. \\\newline
+Die untenstehende Abbildung zeigt einen Ausschnitt aus der Laufzeitanalyse. Das DMS-Signal ist etwas verrauscht, da es unverstärkt mit einem 16bit-ADC aufgezeichnet wurde, was aber für die Betrachtung des Zeitverhaltens irrelevant ist. Das vertikale Hauptgitter ist in Schritte von $1 ms$ unterteilt, das Subgitter in $100\mu s$ Schritte.
+\noindent Die mechanische Dehnung der Struktur, auf welche die Dehnungssensoren aufgeschraubt werden, wird nahezu in Echtzeit an die DMS-Stellen propagiert. Somit lässt sich schliessen, dass die Signalverarbeitung mit dem X-103-A03-Print.
+\begin{itemize}
+	\item nahezu in Echtzeit verläuft
+	\item nur durch Verzicht auf (Tiefpass-) Filter eventuell noch minim beschleunigt werden kann
+	\item die rein analoge Signalverarbeitung in dieser Anwendung die schnellstmögliche ist.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{C:/Users/Mirco/Downloads/Engel_Signallaufzeit_X103A03}
+	\label{fig:engelsignallaufzeitx103a03}
+\end{figure}
+\end{document}

@@ -1,0 +1,2 @@
+C:\Users\Mirco\Downloads\cs_lppx2_Csharp\Lppx2_C#\obj\Debug\Lppx2.csprojAssemblyReference.cache
+C:\Users\Mirco\Downloads\cs_lppx2_Csharp\Lppx2_C#\obj\Debug\Lppx2.csproj.ResolveComReference.cache
